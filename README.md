@@ -103,4 +103,14 @@ The actively maintained @redocly/cli for combining OpenAPI files.
 npm install -g @redocly/cli
 ```
 
+- Generate the apis and models
+Since the apis and models are not in the repo, we need to generate it.
+```shell
+./generate_api.sh
+```
 
+ Build mssp docker image and run (network configured in docker-compose.yml)
+```shell
+cd src/generated/
+docker-compose up
+```
