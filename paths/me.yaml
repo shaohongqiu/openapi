@@ -1,0 +1,31 @@
+settings:
+  get:
+    summary: Get current user MSSP settings
+    tags: [Me]
+    responses:
+      '200':
+        description: User settings retrieved successfully
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas/me.yaml#/MeSettings'
+  put:
+    summary: Update current user MSSP settings
+    tags: [Me]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/me.yaml#/MeSettings'
+          example:
+            tenancy_mode: multi
+    responses:
+      '200':
+        description: Settings updated successfully
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas/me.yaml#/MeSettings'
+      '400':
+        description: Invalid request body

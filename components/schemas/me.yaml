@@ -1,0 +1,11 @@
+MeSettings:
+  type: object
+  description: Settings for the authenticated user.
+  properties:
+    tenancy_mode:
+      type: string
+      enum: [unset, single, multi]
+      description: Tenancy mode for this user.
+  required: [tenancy_mode]
+  example:
+    tenancy_mode: single

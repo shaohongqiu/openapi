@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: Device and Tenant Management API
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- description: Operations related to current user management
+  name: Me
+paths:
+  /v1/mssp/me/settings:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeSettings"
+          description: User settings retrieved successfully
+      summary: Get current user MSSP settings
+      tags:
+      - Me
+    put:
+      requestBody:
+        content:
+          application/json:
+            example:
+              tenancy_mode: multi
+            schema:
+              $ref: "#/components/schemas/MeSettings"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeSettings"
+          description: Settings updated successfully
+        "400":
+          description: Invalid request body
+      summary: Update current user MSSP settings
+      tags:
+      - Me
+components:
+  schemas:
+    MeSettings:
+      description: Settings for the authenticated user.
+      example:
+        tenancy_mode: single
+      properties:
+        tenancy_mode:
+          description: Tenancy mode for this user.
+          enum:
+          - unset
+          - single
+          - multi
+          type: string
+      required:
+      - tenancy_mode
+      title: MeSettings
+      type: object
