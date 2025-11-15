@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: Device and Tenant Management API
+  title: openapi Management API
   version: 1.0.0
 tags:
   - name: Me
     description: Operations related to current user management
 paths:
-  /v1/mssp/me/settings:
+  /v1/me/settings:
     $ref: './paths/me.yaml#/settings'
