@@ -1,24 +1,44 @@
-- Install gawk gcc git
+- Install docker and docker compose
 ```shell
-sudo apt-get install gawk gcc git
-# or Amazon linux
-sudo yum install gawk gcc git
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  noble stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+docker --version
+docker compose version
 
-sudo dnf groupinstall "Development Tools" -y
+sudo usermod -aG docker $USER
+newgrp docker
 
-sudo dnf install -y \
-  openssl-devel \
-  libffi-devel \
-  bzip2-devel \
-  xz-devel \
-  xz-libs \
-  sqlite-devel \
-  readline-devel \
-  zlib-devel \
-  tk-devel \
-  gdbm-devel \
-  uuid-devel
+sudo systemctl status docker
+sudo systemctl start docker
 
+
+- Install gawk gcc make
+```shell
+sudo apt-get update
+sudo apt-get install gawk gcc make
+sudo apt install -y \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libffi-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    liblzma-dev \
+    tk-dev \
+    uuid-dev \
+    curl
 # or MacOS：
 brew install gawk gcc
 ```
@@ -26,8 +46,6 @@ brew install gawk gcc
 - Install Java
 ```shell
 sudo apt-get install default-jdk
-# or Amazon linux
-sudo dnf install java-17-amazon-corretto -y
 ```
 
 
@@ -37,7 +55,7 @@ curl https://pyenv.run | bash
 ```
 
 - Add pyenv to your shell:
-Add these lines to your ~/.bash_profile (Ubuntu) or ~/.zshrc (MacOS):
+Add these lines to your ~/.bashrc (Ubuntu) or ~/.zshrc (MacOS):
 ```shell
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
@@ -47,12 +65,18 @@ eval "$(pyenv virtualenv-init -)"
 
 - install python 3.12.6
 ```shell
+source ~/.bashrc
 pyenv install 3.12.6
 ```
 
 - If you haven't installed Poetry yet, you can install it using the following command:
 ```shell
 curl -sSL https://install.python-poetry.org | python3 -
+
+Add these lines to your ~/.bashrc
+export PATH="/home/ubuntu/.local/bin:$PATH"
+
+source ~/.bashrc
 poetry --version
 ```
 
