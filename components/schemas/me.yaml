@@ -8,4 +8,4 @@ MeSettings:
       description: OpenAPI mode for this user.
   required: [openapi_mode]
   example:
-    tenancy_mode: single
+    openapi_mode: single

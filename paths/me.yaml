@@ -19,7 +19,7 @@ settings:
           schema:
             $ref: '../components/schemas/me.yaml#/MeSettings'
           example:
-            tenancy_mode: single
+            openapi_mode: single
     responses:
       '200':
         description: Settings updated successfully
