@@ -2,10 +2,10 @@ MeSettings:
   type: object
   description: Settings for the authenticated user.
   properties:
-    tenancy_mode:
+    openapi_mode:
       type: string
-      enum: [unset, single, multi]
-      description: Tenancy mode for this user.
-  required: [tenancy_mode]
+      enum: [unset, single]
+      description: OpenAPI mode for this user.
+  required: [openapi_mode]
   example:
     tenancy_mode: single

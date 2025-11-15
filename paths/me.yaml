@@ -1,6 +1,6 @@
 settings:
   get:
-    summary: Get current user MSSP settings
+    summary: Get current user OPENAPI settings
     tags: [Me]
     responses:
       '200':
@@ -10,7 +10,7 @@ settings:
             schema:
               $ref: '../components/schemas/me.yaml#/MeSettings'
   put:
-    summary: Update current user MSSP settings
+    summary: Update current user OPENAPI settings
     tags: [Me]
     requestBody:
       required: true
@@ -19,7 +19,7 @@ settings:
           schema:
             $ref: '../components/schemas/me.yaml#/MeSettings'
           example:
-            tenancy_mode: multi
+            tenancy_mode: single
     responses:
       '200':
         description: Settings updated successfully
