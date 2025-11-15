@@ -50,7 +50,7 @@ eval "$(pyenv virtualenv-init -)"
 pyenv install 3.12.6
 ```
 
-If you haven't installed Poetry yet, you can install it using the following command:
+- If you haven't installed Poetry yet, you can install it using the following command:
 ```shell
 curl -sSL https://install.python-poetry.org | python3 -
 poetry --version
@@ -109,7 +109,7 @@ Since the apis and models are not in the repo, we need to generate it.
 ./generate_api.sh
 ```
 
- Build mssp docker image and run (network configured in docker-compose.yml)
+- Build mssp docker image and run (network configured in docker-compose.yml)
 ```shell
 cd src/generated/
 docker-compose up
