@@ -112,5 +112,5 @@ Since the apis and models are not in the repo, we need to generate it.
 - Build mssp docker image and run (network configured in docker-compose.yml)
 ```shell
 cd src/generated/
-docker-compose up
+docker compose up
 ```
